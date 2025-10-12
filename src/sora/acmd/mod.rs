@@ -1,5 +1,6 @@
-mod acmd;
+mod change;
 
-pub fn install() {
-    acmd::install();
+pub fn install(){
+    change::install();
+
 }
