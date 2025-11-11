@@ -1,6 +1,7 @@
-mod change;
-
+mod main;
+mod default;
+mod misc;
 pub fn install(){
-    change::install();
-
+    main::install();
+    misc::install();
 }
