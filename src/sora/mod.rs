@@ -1,5 +1,7 @@
-mod acmd;
-
-pub fn install() {
-    acmd::install();
+mod main;
+mod default;
+mod misc;
+pub fn install(){
+    main::install();
+    misc::install();
 }
