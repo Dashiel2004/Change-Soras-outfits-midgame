@@ -76,9 +76,17 @@ pub unsafe extern "C" fn sound_utaunt(agent: &mut L2CAgentBase) {
     if enabled{
         if !OUTFIT2.load(Ordering::Relaxed){
             sound_enter_outfit_change(agent);
+            frame(agent.lua_state_agent, 8.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("vc_trail_final01"));
             }
+        }
         else{
             sound_exit_outfit_change(agent);
+            frame(agent.lua_state_agent, 8.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("vc_trail_damage01"));
+            }
         }
 
     }
@@ -158,17 +166,33 @@ pub unsafe extern  "C" fn sound_staunt(agent: &mut L2CAgentBase) {
         if ControlModule::check_button_on(agent.module_accessor, *CONTROL_PAD_BUTTON_APPEAL_S_R){
             if !OUTFIT3.load(Ordering::Relaxed){
                 sound_enter_outfit_change(agent);
+                frame(agent.lua_state_agent, 8.0);
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE(agent, Hash40::new("vc_trail_final01"));
+                }
             }
             else{
                 sound_exit_outfit_change(agent);
+                frame(agent.lua_state_agent, 8.0);
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE(agent, Hash40::new("vc_trail_damage01"));
+                }
             }
         }
         else if ControlModule::check_button_on(agent.module_accessor, *CONTROL_PAD_BUTTON_APPEAL_S_L){
             if !OUTFIT5.load(Ordering::Relaxed){
                 sound_enter_outfit_change(agent);
+                frame(agent.lua_state_agent, 8.0);
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE(agent, Hash40::new("vc_trail_final01"));
+                }
             }
             else{
                 sound_exit_outfit_change(agent);
+                frame(agent.lua_state_agent, 8.0);
+                if macros::is_excute(agent) {
+                    macros::PLAY_SE(agent, Hash40::new("vc_trail_damage01"));
+                }
             }
         }
     }
@@ -229,8 +253,16 @@ pub unsafe extern  "C" fn sound_dtaunt(agent: &mut L2CAgentBase) {
     if enabled{
         if !OUTFIT4.load(Ordering::Relaxed) {
             sound_enter_outfit_change(agent);
+            frame(agent.lua_state_agent, 8.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("vc_trail_final01"));
+            }
         } else {
             sound_exit_outfit_change(agent);
+            frame(agent.lua_state_agent, 8.0);
+            if macros::is_excute(agent) {
+                macros::PLAY_SE(agent, Hash40::new("vc_trail_damage01"));
+            }
         }
     } else {
         default_sound_dtaunt(agent);
