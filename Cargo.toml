@@ -1,11 +1,11 @@
 [package]
-name = "changing_outfit"
-version = "0.1.0"
+name = "changeOutfits"
+version = "0.6.0"
 authors = []
 edition = "2021"
 
 [package.metadata.skyline]
-titleid = "01006A800016E000"
+titleid = "01006A800016E000" # Smash Ultimate
 
 [lib]
 crate-type = ["cdylib"]
@@ -16,7 +16,9 @@ skyline_smash = { git = "https://github.com/blu-dev/skyline-smash.git", features
 smash_script = { git = "https://github.com/blu-dev/smash-script.git", branch = "development" }
 smashline = { git = "https://github.com/hdr-development/smashline.git" }
 smash_singletons = { git = "https://github.com/WuBoytH/smash_singletons.git" }
-lazy_static = "1.4"
+lazy_static = "1.5.0"
+toml = "0.9.8"
+serde = "1.0.228"
 
 [profile.dev]
 panic = "abort"
