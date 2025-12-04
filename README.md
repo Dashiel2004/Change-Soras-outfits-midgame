@@ -10,4 +10,4 @@ This mod is intended for use on the KH2 and KH3 Sora slots (c01 & c05, c03 & c07
 
 The code for this project is built using the rust programming language, which you can learn more about here: https://rust-lang.org/learn ... As well as the Smashline 2 API, this gives me the functions necessary to make this mod a reality, you can learn more about Smashline here: https://github.com/HDR-Development/smashline/wiki/ACMD#acmd-scripts
 
-For now this mod is only built to work with Sora (Because he's my favorite) for now, but there's no reason as to why it may not support more characters in the distant future.
+For now this mod is only built to work with Sora for now, but there's no reason as to why it may not support more characters in the distant future. I mean hey, if you wanna make this work with other characters, youre more than allowed to take the code I have here and use it to work with other characters, all of the files outside of the 'Sora' folder include variables and functions that should work for any character you want, as long as you just change the agent name to whatever character you want to make this work with.
