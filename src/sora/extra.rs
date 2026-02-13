@@ -59,8 +59,10 @@ pub unsafe extern "C" fn on_lose(agent: &mut L2CAgentBase) {
     hide_weapon(agent);
 }
 
+pub unsafe extern "C" fn on_something(agent: &mut L2CAgentBase) {
+    show_weapon(agent);
+}
 
-/// Installs the above functions
 pub fn install() {
     Agent::new("trail")
         .game_acmd("game_win1", on_end, Default)
@@ -69,6 +71,10 @@ pub fn install() {
         .game_acmd("game_lose", on_lose, Default)
         .game_acmd("game_entryl", on_entry, Default)
         .game_acmd("game_entryr", on_entry, Default)
+        .game_acmd("game_damagen1", on_something, Default)
+        .game_acmd("game_damagen2", on_something, Default)
+        .game_acmd("game_damagen3", on_something, Default)
+        .game_acmd("game_wait1", on_something, Default)
         .on_start(on_start)
         .on_line(Main, trail_opff)
         .install();
