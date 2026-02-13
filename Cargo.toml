@@ -1,6 +1,6 @@
 [package]
-name = "changeOutfits"
-version = "0.6.0"
+name = "change_outfits"
+version = "1.0.0"
 authors = []
 edition = "2021"
 

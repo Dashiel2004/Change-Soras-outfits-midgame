@@ -12,9 +12,9 @@ use crate::{config::Config};
 use std::sync::atomic::Ordering;
 
 use crate::vars::*;
-use crate::sound::*;
+use crate::sora::sound::*;
 use crate::effect::*;
-use crate::sora::acmd::default::*;
+use crate::sora::default::*;
 
 pub unsafe extern "C" fn effect_utaunt(agent: &mut L2CAgentBase) {
     let config = Config::get();

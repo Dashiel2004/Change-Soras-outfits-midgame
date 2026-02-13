@@ -1,13 +1,10 @@
 use {
     smash::{
         lua2cpp::*,
-        phx::*,
-        app::{sv_animcmd::*, lua_bind::*, *},
-        lib::{lua_const::*, L2CAgent, L2CValue},
-        hash40
+        app::{lua_bind::*, *},
+        lib::{lua_const::*},
     },
-    smash_script::*,
-    smashline::{*, Priority::*}
+    smashline::{*}
 };
 use crate::vars::*;
 
@@ -31,7 +28,6 @@ pub unsafe extern "C" fn airborne_change(agent: &mut L2CAgentBase) {
     }
 }
 
-/// Install function for online outfit change
 pub fn install() {
     Agent::new("trail")
         .on_line(Main, airborne_change)

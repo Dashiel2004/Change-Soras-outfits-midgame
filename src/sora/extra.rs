@@ -1,14 +1,15 @@
 use {
     smash::{
         lua2cpp::*,
-        app::{lua_bind::*},
+        app::{sv_animcmd::*, lua_bind::*},
         lib::{lua_const::*},
     },
+    smash_script::*,
     smashline::{*, Priority::*}
 };
 
 use crate::vars::*;
-use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::atomic::{Ordering};
 
 /// Loads the default outfit when Sora's model is reset
 pub unsafe extern "C" fn on_start(agent: &mut L2CAgentBase) {
@@ -17,6 +18,11 @@ pub unsafe extern "C" fn on_start(agent: &mut L2CAgentBase) {
 /// Loads the default outfit when Sora's entrance animation plays
 pub unsafe extern "C" fn on_entry(agent: &mut L2CAgentBase) {
     load_outfit1(agent);
+    hide_weapon(agent);
+    frame(agent.lua_state_agent, 24.0);
+    if macros::is_excute(agent) {
+        show_weapon(agent);
+    }
 }
 /// Loads the default outfit when Sora respawns after being KO'd
 pub unsafe extern "C" fn trail_opff(agent: &mut L2CAgentBase) {
@@ -53,6 +59,7 @@ pub unsafe extern "C" fn on_lose(agent: &mut L2CAgentBase) {
     hide_weapon(agent);
 }
 
+
 /// Installs the above functions
 pub fn install() {
     Agent::new("trail")
@@ -64,6 +71,5 @@ pub fn install() {
         .game_acmd("game_entryr", on_entry, Default)
         .on_start(on_start)
         .on_line(Main, trail_opff)
-
         .install();
 }
