@@ -17,8 +17,11 @@ pub unsafe extern "C" fn on_start(agent: &mut L2CAgentBase) {
 }
 /// Loads the default outfit when Sora's entrance animation plays
 pub unsafe extern "C" fn on_entry(agent: &mut L2CAgentBase) {
-    load_outfit1(agent);
-    hide_weapon(agent);
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        load_outfit1(agent);
+        hide_weapon(agent);
+    }
     frame(agent.lua_state_agent, 24.0);
     if macros::is_excute(agent) {
         show_weapon(agent);
@@ -59,8 +62,11 @@ pub unsafe extern "C" fn on_lose(agent: &mut L2CAgentBase) {
     hide_weapon(agent);
 }
 
-pub unsafe extern "C" fn on_something(agent: &mut L2CAgentBase) {
-    show_weapon(agent);
+pub unsafe extern "C" fn on_damage(agent: &mut L2CAgentBase) {
+    frame(agent.lua_state_agent, 1.0);
+    if macros::is_excute(agent) {
+        show_weapon(agent);
+    }
 }
 
 pub fn install() {
@@ -71,10 +77,18 @@ pub fn install() {
         .game_acmd("game_lose", on_lose, Default)
         .game_acmd("game_entryl", on_entry, Default)
         .game_acmd("game_entryr", on_entry, Default)
-        .game_acmd("game_damagen1", on_something, Default)
-        .game_acmd("game_damagen2", on_something, Default)
-        .game_acmd("game_damagen3", on_something, Default)
-        .game_acmd("game_wait1", on_something, Default)
+        .game_acmd("game_damagen1", on_damage, Default)
+        .game_acmd("game_damagen2", on_damage, Default)
+        .game_acmd("game_damagen3", on_damage, Default)
+        .game_acmd("game_damagehi1", on_damage, Default)
+        .game_acmd("game_damagehi2", on_damage, Default)
+        .game_acmd("game_damagehi3", on_damage, Default)
+        .game_acmd("game_damagelw1", on_damage, Default)
+        .game_acmd("game_damagelw2", on_damage, Default)
+        .game_acmd("game_damagelw3", on_damage, Default)
+        .game_acmd("game_damageflyhi", on_damage, Default)
+        .game_acmd("game_damageflylw", on_damage, Default)
+        .game_acmd("game_damageflyn", on_damage, Default)
         .on_start(on_start)
         .on_line(Main, trail_opff)
         .install();

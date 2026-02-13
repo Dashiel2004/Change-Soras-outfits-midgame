@@ -168,7 +168,7 @@ pub unsafe extern  "C" fn sound_staunt(agent: &mut L2CAgentBase) {
                 sound_enter_outfit_change(agent);
                 frame(agent.lua_state_agent, 8.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new("vc_trail_final01"));
+                    macros::PLAY_SE(agent, Hash40::new("vc_trail_appeal_l01"));
                 }
             }
             else{
@@ -184,7 +184,7 @@ pub unsafe extern  "C" fn sound_staunt(agent: &mut L2CAgentBase) {
                 sound_enter_outfit_change(agent);
                 frame(agent.lua_state_agent, 8.0);
                 if macros::is_excute(agent) {
-                    macros::PLAY_SE(agent, Hash40::new("vc_trail_final01"));
+                    macros::PLAY_SE(agent, Hash40::new("vc_trail_special_h02"));
                 }
             }
             else{
@@ -255,7 +255,7 @@ pub unsafe extern  "C" fn sound_dtaunt(agent: &mut L2CAgentBase) {
             sound_enter_outfit_change(agent);
             frame(agent.lua_state_agent, 8.0);
             if macros::is_excute(agent) {
-                macros::PLAY_SE(agent, Hash40::new("vc_trail_final01"));
+                macros::PLAY_SE(agent, Hash40::new("vc_trail_special_s01"));
             }
         } else {
             sound_exit_outfit_change(agent);
