@@ -95,10 +95,15 @@ pub unsafe fn load_outfit3(agent: &mut L2CAgentBase) {
     OUTFIT4.store(false, Ordering::Relaxed);
     OUTFIT5.store(false, Ordering::Relaxed);
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit1"), false);
+    ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit1_weapon"), false);
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit2"), false);
+    ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit2_weapon"), false);
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit3"), true);
+    ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit3_weapon"), true);
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit4"), false);
+    ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit4_weapon"), false);
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit5"), false);
+    ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit5_weapon"), false);
     OUTFIT_WIN1.store(false, Ordering::Relaxed);
     OUTFIT_WIN2.store(false, Ordering::Relaxed);
     OUTFIT_WIN3.store(true, Ordering::Relaxed);

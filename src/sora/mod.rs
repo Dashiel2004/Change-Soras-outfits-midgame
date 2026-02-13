@@ -3,10 +3,10 @@ mod default;
 mod misc;
 mod sound;
 mod extra;
-mod airborne;
+mod air;
 pub fn install(){
     main::install();
     misc::install();
     extra::install();
-    airborne::install();
+    air::install();
 }

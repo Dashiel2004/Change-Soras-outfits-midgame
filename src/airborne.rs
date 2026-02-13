@@ -4,11 +4,9 @@ use {
         app::{lua_bind::*, *},
         lib::{lua_const::*},
     },
-    smashline::{*}
 };
 use crate::vars::*;
 
-/// Made for online play, changes Sora's outfit based on dpad inputs
 pub unsafe extern "C" fn airborne_change(agent: &mut L2CAgentBase) {
     let module_accessor = sv_system::battle_object_module_accessor(agent.lua_state_agent);
     let situation_kind = StatusModule::situation_kind(module_accessor);    
@@ -26,10 +24,4 @@ pub unsafe extern "C" fn airborne_change(agent: &mut L2CAgentBase) {
             load_outfit5(agent);
         }
     }
-}
-
-pub fn install() {
-    Agent::new("trail")
-        .on_line(Main, airborne_change)
-        .install();
 }
