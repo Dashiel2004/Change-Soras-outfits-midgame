@@ -56,6 +56,7 @@ pub unsafe extern "C" fn on_end(agent: &mut L2CAgentBase) {
 
 pub unsafe extern "C" fn on_lose(agent: &mut L2CAgentBase) {
     hide_weapon(agent);
+    NO_WEAPON_VISIBLE.store(false, Ordering::Relaxed);
 }
 
 
