@@ -164,9 +164,11 @@ pub unsafe fn hide_weapon(agent: &mut L2CAgentBase) {
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit3_weapon"), false);
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit4_weapon"), false);
     ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit5_weapon"), false);
+    NO_WEAPON_VISIBLE.store(true, Ordering::Relaxed);
 }
 
 pub unsafe fn show_weapon(agent: &mut L2CAgentBase){
+    NO_WEAPON_VISIBLE.store(false, Ordering::Relaxed);
     if OUTFIT1.load(Ordering::Relaxed) {
         ModelModule::set_mesh_visibility(agent.module_accessor, Hash40::new("outfit1_weapon"), true);
     }
