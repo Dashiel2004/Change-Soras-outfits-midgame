@@ -6,6 +6,7 @@ use {
     },
 };
 use crate::vars::*;
+use std::sync::atomic::{Ordering};
 
 pub unsafe extern "C" fn airborne_change(agent: &mut L2CAgentBase) {
     let module_accessor = sv_system::battle_object_module_accessor(agent.lua_state_agent);

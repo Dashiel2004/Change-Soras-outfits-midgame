@@ -1,8 +1,7 @@
 use {
     smash::{
         lua2cpp::*,
-        app::{sv_animcmd::*, lua_bind::*, *},
-        lib::{lua_const::*},
+        app::{sv_animcmd::*},
     },
     smash_script::*,
     smashline::{*, Priority::*}
