@@ -24,6 +24,8 @@ pub static OUTFIT_WIN3: AtomicBool = AtomicBool::new(false);
 pub static OUTFIT_WIN4: AtomicBool = AtomicBool::new(false);
 pub static OUTFIT_WIN5: AtomicBool = AtomicBool::new(false);
 
+pub static NO_WEAPON_VISIBLE: AtomicBool = AtomicBool::new(false);
+
 
 /// Functions to load each outfit by setting the appropriate atomic booleans and updating model visibility
 pub unsafe fn load_default(agent: &mut L2CAgentBase){

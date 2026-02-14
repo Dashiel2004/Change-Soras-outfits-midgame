@@ -6,6 +6,7 @@ use {
     smash_script::*,
     smashline::{*, Priority::*}
 };
+use std::sync::atomic::{Ordering};
 use crate::vars::*;
 
 pub unsafe extern "C" fn effect_back_throw(agent: &mut L2CAgentBase) {
@@ -20,6 +21,7 @@ pub unsafe extern "C" fn effect_back_throw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
         hide_weapon(agent);
+        NO_WEAPON_VISIBLE.store(true, Ordering::Relaxed);
         macros::EFFECT_FOLLOW(agent, Hash40::new("trail_throw_b"), Hash40::new("throw"), 0.4, 3, 0.4, 0, 0, 0, 1, true);
     }
     frame(agent.lua_state_agent, 16.0);
@@ -54,6 +56,7 @@ pub unsafe extern "C" fn effect_back_throw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 56.0);
     if macros::is_excute(agent) {
         show_weapon(agent);
+        NO_WEAPON_VISIBLE.store(false, Ordering::Relaxed);
     }
 }
 
