@@ -58,8 +58,18 @@ pub unsafe extern "C" fn on_lose(agent: &mut L2CAgentBase) {
     hide_weapon(agent);
     NO_WEAPON_VISIBLE.store(false, Ordering::Relaxed);
 }
-
-
+pub unsafe extern "C" fn sora_opff(agent: &mut L2CAgentBase){
+    let status = [
+        *FIGHTER_STATUS_KIND_ENTRY,
+        *FIGHTER_STATUS_KIND_THROW,
+    ];
+    if !status.contains(&status_kind) {
+        if NO_WEAPON_VISIBLE.load(Ordering::Relaxed){
+            show_weapon(agent);
+            NO_WEAPON_VISIBLE.store(false, Ordering::Relaxed);
+        }
+    }
+}
 
 pub fn install() {
     Agent::new("trail")
@@ -71,6 +81,7 @@ pub fn install() {
         .game_acmd("game_entryr", on_entry, Default)
         .on_line(Main, airborne_change)
         .on_line(Main, global_opff)
+        .on_line(Main, sora_opff)
         .on_start(on_start)
         .install();
 }

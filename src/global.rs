@@ -32,15 +32,5 @@ pub unsafe extern "C" fn global_opff(agent: &mut L2CAgentBase) {
     let status_kind = StatusModule::status_kind(module_accessor); 
     if status_kind == FIGHTER_STATUS_KIND_DEAD {
         load_outfit1(agent);
-    }
-    let damage_statuses = [
-        *FIGHTER_STATUS_KIND_ENTRY,
-        *FIGHTER_STATUS_KIND_THROW,
-    ];
-    if !damage_statuses.contains(&status_kind) {
-        if NO_WEAPON_VISIBLE.load(Ordering::Relaxed){
-            show_weapon(agent);
-            NO_WEAPON_VISIBLE.store(false, Ordering::Relaxed);
-        }
     }  
 }
