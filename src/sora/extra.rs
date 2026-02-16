@@ -1,7 +1,8 @@
 use {
     smash::{
         lua2cpp::*,
-        app::{sv_animcmd::*},
+        app::{sv_animcmd::*, lua_bind::*, *},
+        lib::{lua_const::*},
     },
     smash_script::*,
     smashline::{*, Priority::*}
@@ -59,6 +60,8 @@ pub unsafe extern "C" fn on_lose(agent: &mut L2CAgentBase) {
     NO_WEAPON_VISIBLE.store(false, Ordering::Relaxed);
 }
 pub unsafe extern "C" fn sora_opff(agent: &mut L2CAgentBase){
+    let module_accessor = sv_system::battle_object_module_accessor(agent.lua_state_agent);
+    let status_kind = StatusModule::status_kind(module_accessor); 
     let status = [
         *FIGHTER_STATUS_KIND_ENTRY,
         *FIGHTER_STATUS_KIND_THROW,
