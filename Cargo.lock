@@ -81,7 +81,7 @@ version = "1.0.0"
 dependencies = [
  "lazy_static",
  "serde",
- "skyline 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "skyline 0.6.0",
  "skyline_smash",
  "smash_script",
  "smash_singletons",
@@ -216,11 +216,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ece4a9a361bf75974e2c18b719e8fd501e4e336d7a5db22d077c4f2367a94be9"
 
 [[package]]
+name = "libc-nnsdk"
+version = "0.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1256a11d163c7288d94909f8120ede53294d8c233df314b0e4f01cf0269707da"
+
+[[package]]
 name = "locks"
 version = "1.6.5"
 source = "git+https://github.com/hdr-development/smashline.git#b2d33fd0dba2b55f8048bd9d868686a44a6d03be"
 dependencies = [
- "skyline 0.5.1 (git+https://github.com/ultimate-research/skyline-rs)",
+ "skyline 0.5.1",
 ]
 
 [[package]]
@@ -250,6 +256,15 @@ version = "0.5.0"
 source = "git+https://github.com/ultimate-research/nnsdk-rs#41de93580243d47e47dd1eb1cef728194ed98040"
 dependencies = [
  "libc-nnsdk 0.4.0",
+]
+
+[[package]]
+name = "nnsdk"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b93c8d8abfc4d7400395a4460137e9b6c017cf6ace2f46bc80ce021a84f84ea9"
+dependencies = [
+ "libc-nnsdk 0.5.0",
 ]
 
 [[package]]
@@ -389,22 +404,22 @@ dependencies = [
 [[package]]
 name = "skyline"
 version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b244971e9da13b95f900653cd5054a27277c5dc2a00065ec4f2950020f3e41f"
-dependencies = [
- "libc-nnsdk 0.4.0",
- "nnsdk 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "skyline_macro 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "skyline"
-version = "0.5.1"
 source = "git+https://github.com/ultimate-research/skyline-rs#7bd379b25c926cb65a492412805258e49ce9136e"
 dependencies = [
  "libc-nnsdk 0.4.0",
  "nnsdk 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "skyline_macro 0.2.1 (git+https://github.com/ultimate-research/skyline-rs)",
+]
+
+[[package]]
+name = "skyline"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7b4c2c28cda0d198befe59479c593537fc306cabb61d32a9428fcd2725df35c6"
+dependencies = [
+ "libc-nnsdk 0.5.0",
+ "nnsdk 0.6.0",
+ "skyline_macro 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -440,7 +455,7 @@ dependencies = [
  "libc-nnsdk 0.2.0",
  "nnsdk 0.5.0 (git+https://github.com/ultimate-research/nnsdk-rs)",
  "paste",
- "skyline 0.5.1 (git+https://github.com/ultimate-research/skyline-rs)",
+ "skyline 0.5.1",
 ]
 
 [[package]]
@@ -448,7 +463,7 @@ name = "smash_script"
 version = "0.1.0"
 source = "git+https://github.com/blu-dev/smash-script.git?branch=development#3cdb85835c26f407d6f42e290424a935aca6e0e7"
 dependencies = [
- "skyline 0.5.1 (git+https://github.com/ultimate-research/skyline-rs)",
+ "skyline 0.5.1",
  "skyline_smash",
 ]
 
@@ -457,7 +472,7 @@ name = "smash_singletons"
 version = "0.1.0"
 source = "git+https://github.com/WuBoytH/smash_singletons.git#66041976044224b9ca4b077c32f70f187eac90fc"
 dependencies = [
- "skyline 0.5.1 (git+https://github.com/ultimate-research/skyline-rs)",
+ "skyline 0.5.1",
  "skyline_smash",
 ]
 
@@ -468,7 +483,7 @@ source = "git+https://github.com/hdr-development/smashline.git#b2d33fd0dba2b55f8
 dependencies = [
  "acmd-engine",
  "locks",
- "skyline 0.5.1 (git+https://github.com/ultimate-research/skyline-rs)",
+ "skyline 0.5.1",
  "skyline_smash",
  "smashline-macro",
 ]
